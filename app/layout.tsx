@@ -1,27 +1,33 @@
-import './global.css'
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Navbar } from './components/nav'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import Footer from './components/footer'
-import { baseUrl } from './sitemap'
+import "./global.css";
+import type { Metadata } from "next";
+import { Navbar } from "./components/nav";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { baseUrl } from "./sitemap";
+import { Poppins } from "next/font/google";
+import Footer from "./components/footer";
+
+const poppins = Poppins({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: "Beyond Web Solutions",
+    template: "%s | Beyond Web Solutions",
   },
-  description: 'This is my portfolio.',
+  description:
+    "Blogs over de ontwikkeling van webapplicaties met praktische inzichten en tips voor kwalitatieve softwareoplossingen.",
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: "Beyond Web Solutions",
+    description:
+      "Blogs over de ontwikkeling van webapplicaties met praktische inzichten en tips voor kwalitatieve softwareoplossingen.",
     url: baseUrl,
-    siteName: 'My Portfolio',
-    locale: 'en_US',
-    type: 'website',
+    siteName: "Beyond Web Solutions",
+    locale: "nl_NL",
+    type: "website",
   },
   robots: {
     index: true,
@@ -29,31 +35,30 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-}
+};
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+const cx = (...classes) => classes.filter(Boolean).join(" ");
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html
-      lang="en"
+      lang="nl"
       className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable
+        "bg-white text-black dark:bg-black dark:text-white",
+        poppins.className,
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+      <body className="mx-4 mt-8 max-w-xl antialiased lg:mx-auto">
+        <main className="mt-6 flex min-w-0 flex-auto flex-col px-2 md:px-0">
           <Navbar />
           {children}
           <Footer />
@@ -62,5 +67,5 @@ export default function RootLayout({
         </main>
       </body>
     </html>
-  )
+  );
 }

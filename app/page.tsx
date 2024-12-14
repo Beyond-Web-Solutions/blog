@@ -1,21 +1,15 @@
-import { BlogPosts } from 'app/components/posts'
+import { BlogPosts } from "app/components/posts";
 
 export default function Page() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
-      </h1>
+      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">Welkom!</h1>
       <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
+        {`Beyond Web Solutions is een softwarebedrijf dat zich richt op het ontwikkelen van robuuste webapplicaties met moderne technieken. Wij specialiseren ons in het bouwen van hoogwaardige, op maat gemaakte softwareoplossingen die aansluiten bij de behoeften van onze klanten. Ons doel is om efficiënte, schaalbare producten te leveren, met een sterke focus op kwaliteit, transparantie en samenwerking. Op deze blog delen we onze inzichten, codestijlen, ontwikkelingspraktijken en de lessen die we onderweg hebben geleerd.`}
       </p>
       <div className="my-8">
         <BlogPosts />
       </div>
     </section>
-  )
+  );
 }
